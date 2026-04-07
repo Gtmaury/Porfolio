@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mauricio González — Frontend Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --surface2: #1a1a24;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.13);
+    --text: #f0eff5;
+    --muted: #8a899a;
+    --accent: #6c63ff;
+    --accent2: #a78bfa;
+    --accent-glow: rgba(108,99,255,0.18);
+    --green: #4ade80;
+    --green-bg: rgba(74,222,128,0.08);
+    --tag-html: #f97316;
+    --tag-css: #3b82f6;
+    --tag-js: #eab308;
+    --tag-git: #f43f5e;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE GRAIN ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.1rem 0;
+    background: rgba(10,10,15,0.75);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav .container { display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--accent2); }
+  .nav-links { display: flex; align-items: center; gap: 2rem; }
+  .nav-links a {
+    font-size: 14px; font-weight: 400;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .lang-toggle {
+    font-size: 13px; font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border2);
+    background: var(--surface);
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .lang-toggle:hover { border-color: var(--accent); color: var(--accent2); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 0 4rem;
+    position: relative;
+  }
+  .hero-glow {
+    position: absolute;
+    top: 20%; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(108,99,255,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 1.25rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block; width: 24px; height: 1px;
+    background: var(--accent2);
+  }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.03;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 .line2 { color: var(--accent2); display: block; }
+  .hero-desc {
+    font-size: 17px; font-weight: 300;
+    color: var(--muted);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 28px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px; font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 28px;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px; font-weight: 500;
+    text-decoration: none;
+    border: 1px solid var(--border2);
+    transition: all 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent2); }
+  .open-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 500;
+    padding: 5px 12px; border-radius: 999px;
+    background: var(--green-bg);
+    color: var(--green);
+    border: 1px solid rgba(74,222,128,0.2);
+  }
+  .open-tag::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 1.8s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+  .hero-avatar-wrap {
+    position: relative;
+  }
+  .hero-avatar {
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    object-fit: cover; object-position: top;
+    border: 2px solid var(--border2);
+    display: block;
+    filter: grayscale(20%);
+  }
+  .avatar-ring {
+    position: absolute; inset: -8px;
+    border-radius: 50%;
+    border: 1px solid var(--accent);
+    opacity: 0.3;
+    animation: spin 12s linear infinite;
+  }
+  .avatar-ring::before {
+    content: '';
+    position: absolute;
+    top: -3px; left: 50%;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent2);
+    transform: translateX(-50%);
+  }
+  @keyframes spin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 6rem 0; }
+  .section-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 3.5rem;
+    line-height: 1.1;
+  }
+
+  /* ── SKILLS ── */
+  #habilidades { background: var(--surface); }
+  .skills-headline { max-width: 640px; margin-bottom: 3.5rem; }
+  .skills-headline p { font-size: 17px; font-weight: 300; color: var(--muted); line-height: 1.7; }
+
+  .stack-main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .stack-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .stack-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--card-accent, var(--accent));
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .stack-card:hover { border-color: var(--border2); transform: translateY(-3px); }
+  .stack-card:hover::before { opacity: 1; }
+  .stack-card.html { --card-accent: var(--tag-html); }
+  .stack-card.css  { --card-accent: var(--tag-css); }
+  .stack-card.js   { --card-accent: var(--tag-js); }
+  .stack-card.git  { --card-accent: var(--tag-git); }
+
+  .stack-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .stack-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px; font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .stack-level {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .progress-bar {
+    height: 3px;
+    background: var(--border2);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: var(--card-accent, var(--accent));
+    transition: width 1s ease;
+  }
+  .stack-desc { font-size: 13px; color: var(--muted); margin-top: 10px; line-height: 1.5; }
+
+  .extras-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+  .extra-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 18px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+  }
+  .extra-item:hover { border-color: var(--border2); }
+  .extra-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent2);
+    flex-shrink: 0;
+  }
+
+  /* ── CERTS ── */
+  .certs-grid {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin-top: 2rem;
+  }
+  .cert-chip {
+    font-size: 13px; font-weight: 400;
+    padding: 7px 16px;
+    border-radius: 999px;
+    background: var(--surface2);
+    color: var(--muted);
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+  .cert-chip:hover { border-color: var(--accent); color: var(--accent2); }
+
+  /* ── PROJECTS ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    transition: border-color 0.25s, transform 0.25s;
+    display: flex; flex-direction: column;
+  }
+  .project-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+  .project-card-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem; }
+  .project-icon-wrap {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: var(--accent-glow);
+    border: 1px solid rgba(108,99,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .project-link {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.2s;
+    line-height: 1;
+  }
+  .project-link:hover { color: var(--accent2); }
+  .project-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px; font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .project-desc { font-size: 14px; color: var(--muted); line-height: 1.6; flex: 1; margin-bottom: 1.25rem; }
+  .project-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .ptag {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.04em;
+    padding: 3px 10px; border-radius: 999px;
+    text-transform: uppercase;
+  }
+  .ptag.html { background: rgba(249,115,22,0.12); color: #fb923c; }
+  .ptag.css  { background: rgba(59,130,246,0.12); color: #60a5fa; }
+  .ptag.js   { background: rgba(234,179,8,0.12);  color: #fbbf24; }
+
+  /* ── EDUCATION ── */
+  #educacion { background: var(--surface); }
+  .edu-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 620px;
+    display: flex; gap: 1.5rem;
+  }
+  .edu-line {
+    width: 2px; background: linear-gradient(to bottom, var(--accent), transparent);
+    border-radius: 2px; flex-shrink: 0;
+  }
+  .edu-date { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .edu-degree { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+  .edu-school { font-size: 14px; color: var(--accent2); margin-bottom: 10px; }
+  .edu-honor {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 500;
+    padding: 4px 12px; border-radius: 999px;
+    background: rgba(250,204,21,0.08); color: #fbbf24;
+    border: 1px solid rgba(250,204,21,0.2);
+  }
+
+  /* ── CONTACT ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem; align-items: start;
+  }
+  .contact-intro {
+    font-size: 17px; font-weight: 300; color: var(--muted); line-height: 1.75; margin-bottom: 2rem;
+  }
+  .contact-links { display: flex; flex-direction: column; gap: 12px; }
+  .contact-link-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .contact-link-item:hover { border-color: var(--accent); transform: translateX(4px); }
+  .contact-link-icon { font-size: 18px; }
+  .contact-link-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .contact-link-val { font-size: 14px; color: var(--text); }
+  .contact-right {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem;
+  }
+  .contact-right h3 {
+    font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; margin-bottom: 1.25rem;
+  }
+  .contact-right p { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 2rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 13px; color: var(--muted);
+  }
+
+  /* ── FADE IN ── */
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .hero-inner { grid-template-columns: 1fr; text-align: center; }
+    .hero-avatar-wrap { display: none; }
+    .hero-desc { margin: 0 auto 2.5rem; }
+    .hero-actions { justify-content: center; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .nav-links a { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <a href="#" class="nav-logo">MG<span>.</span></a>
+    <div class="nav-links">
+      <a href="#habilidades" data-es="Habilidades" data-en="Skills">Habilidades</a>
+      <a href="#proyectos" data-es="Proyectos" data-en="Projects">Proyectos</a>
+      <a href="#educacion" data-es="Educación" data-en="Education">Educación</a>
+      <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">🌐 EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <p class="hero-eyebrow" data-es="Desarrollador Frontend" data-en="Frontend Developer">Desarrollador Frontend</p>
+        <h1>
+          Mauricio
+          <span class="line2">González.</span>
+        </h1>
+        <p class="hero-desc" data-es="Construyo interfaces web modernas, limpias y funcionales con HTML, CSS y JavaScript. Apasionado del código limpio y el aprendizaje continuo." data-en="I build modern, clean, and functional web interfaces with HTML, CSS and JavaScript. Passionate about clean code and continuous learning.">
+          Construyo interfaces web modernas, limpias y funcionales con HTML, CSS y JavaScript. Apasionado del código limpio y el aprendizaje continuo.
+        </p>
+        <div class="hero-actions">
+          <a href="#proyectos" class="btn-primary" data-es="Ver proyectos →" data-en="See projects →">Ver proyectos →</a>
+          <a href="#contacto" class="btn-ghost" data-es="Contáctame" data-en="Get in touch">Contáctame</a>
+        </div>
+        <div style="margin-top:2rem;">
+          <span class="open-tag" data-es="Disponible para trabajar" data-en="Open to work">Disponible para trabajar</span>
+        </div>
+      </div>
+      <div class="hero-avatar-wrap">
+        <div class="avatar-ring"></div>
+        <img src="https://avatars.githubusercontent.com/u/160811697?v=4" class="hero-avatar" alt="Mauricio González" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="habilidades">
+  <div class="container">
+    <p class="section-label" data-es="Stack técnico" data-en="Tech stack">Stack técnico</p>
+    <div class="skills-headline fade-in">
+      <h2 class="section-title" data-es="Mis habilidades" data-en="My skills">Mis habilidades</h2>
+      <p data-es="Me enfoco en dominar las tecnologías fundamentales del desarrollo frontend. Bases sólidas, código limpio y mejora constante." data-en="I focus on mastering the fundamentals of frontend development. Solid foundations, clean code, and constant improvement.">
+        Me enfoco en dominar las tecnologías fundamentales del desarrollo frontend. Bases sólidas, código limpio y mejora constante.
+      </p>
+    </div>
+
+    <div class="stack-main fade-in">
+      <div class="stack-card html">
+        <span class="stack-icon">🌐</span>
+        <div class="stack-name">HTML5</div>
+        <div class="stack-level" data-es="Avanzado" data-en="Advanced">Avanzado</div>
+        <div class="progress-bar"><div class="progress-fill" style="width:85%"></div></div>
+        <div class="stack-desc" data-es="Estructura semántica, accesibilidad, formularios y buenas prácticas." data-en="Semantic structure, accessibility, forms and best practices.">Estructura semántica, accesibilidad, formularios y buenas prácticas.</div>
+      </div>
+      <div class="stack-card css">
+        <span class="stack-icon">🎨</span>
+        <div class="stack-name">CSS3</div>
+        <div class="stack-level" data-es="Avanzado" data-en="Advanced">Avanzado</div>
+        <div class="progress-bar"><div class="progress-fill" style="width:82%"></div></div>
+        <div class="stack-desc" data-es="Flexbox, Grid, animaciones, diseño responsivo y metodología BEM." data-en="Flexbox, Grid, animations, responsive design and BEM methodology.">Flexbox, Grid, animaciones, diseño responsivo y metodología BEM.</div>
+      </div>
+      <div class="stack-card js">
+        <span class="stack-icon">⚡</span>
+        <div class="stack-name">JavaScript</div>
+        <div class="stack-level" data-es="Fundamentos" data-en="Fundamentals">Fundamentos</div>
+        <div class="progress-bar"><div class="progress-fill" style="width:55%"></div></div>
+        <div class="stack-desc" data-es="Variables, funciones, DOM, eventos y lógica de programación." data-en="Variables, functions, DOM, events and programming logic.">Variables, funciones, DOM, eventos y lógica de programación.</div>
+      </div>
+      <div class="stack-card git">
+        <span class="stack-icon">🔀</span>
+        <div class="stack-name">Git & GitHub</div>
+        <div class="stack-level" data-es="Intermedio" data-en="Intermediate">Intermedio</div>
+        <div class="progress-bar"><div class="progress-fill" style="width:65%"></div></div>
+        <div class="stack-desc" data-es="Control de versiones, ramas, pull requests y flujos de trabajo." data-en="Version control, branches, pull requests and workflows.">Control de versiones, ramas, pull requests y flujos de trabajo.</div>
+      </div>
+    </div>
+
+    <div class="extras-grid fade-in">
+      <div class="extra-item"><div class="extra-dot"></div><span data-es="Programación lógica" data-en="Programming logic">Programación lógica</span></div>
+      <div class="extra-item"><div class="extra-dot"></div><span>CLI / Terminal</span></div>
+      <div class="extra-item"><div class="extra-dot"></div><span data-es="Diseño responsivo" data-en="Responsive design">Diseño responsivo</span></div>
+      <div class="extra-item"><div class="extra-dot"></div><span data-es="Resolución de problemas" data-en="Problem solving">Resolución de problemas</span></div>
+      <div class="extra-item"><div class="extra-dot"></div><span data-es="Español nativo · Inglés B2" data-en="Spanish native · English B2">Español nativo · Inglés B2</span></div>
+      <div class="extra-item"><div class="extra-dot"></div><span data-es="Aprendizaje autodidacta" data-en="Self-directed learning">Aprendizaje autodidacta</span></div>
+    </div>
+
+    <div class="fade-in" style="margin-top:3rem;">
+      <p style="font-size:13px; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin-bottom:1rem;" data-es="Certificaciones — Platzi" data-en="Certifications — Platzi">Certificaciones — Platzi</p>
+      <div class="certs-grid">
+        <span class="cert-chip" data-es="HTML & CSS Práctico · 16h" data-en="Practical HTML & CSS · 16h">HTML & CSS Práctico · 16h</span>
+        <span class="cert-chip" data-es="HTML & CSS Definitivo · 23h" data-en="Definitive HTML & CSS · 23h">HTML & CSS Definitivo · 23h</span>
+        <span class="cert-chip" data-es="Fundamentos de JavaScript · 19h" data-en="JavaScript Fundamentals · 19h">Fundamentos de JavaScript · 19h</span>
+        <span class="cert-chip" data-es="Terminal & CLI · 18h" data-en="Terminal & CLI · 18h">Terminal & CLI · 18h</span>
+        <span class="cert-chip" data-es="Bases de Ing. de Software · 14h" data-en="Software Engineering Basics · 14h">Bases de Ing. de Software · 14h</span>
+        <span class="cert-chip" data-es="Frontend Developer Práctico · 13h" data-en="Practical Frontend Dev · 13h">Frontend Developer Práctico · 13h</span>
+        <span class="cert-chip" data-es="Ruta Frontend Developer · 15h" data-en="Frontend Developer Path · 15h">Ruta Frontend Developer · 15h</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="proyectos">
+  <div class="container">
+    <p class="section-label" data-es="GitHub" data-en="GitHub">GitHub</p>
+    <h2 class="section-title fade-in" data-es="Proyectos destacados" data-en="Featured projects">Proyectos destacados</h2>
+    <div class="projects-grid">
+
+      <div class="project-card fade-in">
+        <div class="project-card-top">
+          <div class="project-icon-wrap">💄</div>
+          <a href="https://github.com/Gtmaury/Serena-studio" target="_blank" class="project-link">↗</a>
+        </div>
+        <div class="project-title">Serena Studio</div>
+        <p class="project-desc" data-es="Página web completa para una marca de cosméticos. Diseño visual atractivo con maquetación avanzada en HTML y CSS." data-en="Full website for a cosmetics brand. Visually appealing design with advanced HTML and CSS layout.">Página web completa para una marca de cosméticos. Diseño visual atractivo con maquetación avanzada en HTML y CSS.</p>
+        <div class="project-tags">
+          <span class="ptag html">HTML</span>
+          <span class="ptag css">CSS</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-card-top">
+          <div class="project-icon-wrap">🔍</div>
+          <a href="https://github.com/Gtmaury/Google-clone" target="_blank" class="project-link">↗</a>
+        </div>
+        <div class="project-title">Google Clone</div>
+        <p class="project-desc" data-es="Clon fiel de la página principal de Google. Practicando posicionamiento CSS, pseudo-elementos y diseño pixel-perfect." data-en="Faithful clone of Google's homepage. Practicing CSS positioning, pseudo-elements and pixel-perfect design.">Clon fiel de la página principal de Google. Practicando posicionamiento CSS, pseudo-elementos y diseño pixel-perfect.</p>
+        <div class="project-tags">
+          <span class="ptag html">HTML</span>
+          <span class="ptag css">CSS</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-card-top">
+          <div class="project-icon-wrap">📋</div>
+          <a href="https://github.com/Gtmaury/form-project-" target="_blank" class="project-link">↗</a>
+        </div>
+        <div class="project-title">Form Project</div>
+        <p class="project-desc" data-es="Formulario web completo desarrollado en freeCodeCamp. Validación de campos, accesibilidad y diseño responsivo." data-en="Complete web form built on freeCodeCamp. Field validation, accessibility and responsive design.">Formulario web completo desarrollado en freeCodeCamp. Validación de campos, accesibilidad y diseño responsivo.</p>
+        <div class="project-tags">
+          <span class="ptag html">HTML</span>
+          <span class="ptag css">CSS</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-card-top">
+          <div class="project-icon-wrap">🏗️</div>
+          <a href="https://github.com/Gtmaury/TDP-project" target="_blank" class="project-link">↗</a>
+        </div>
+        <div class="project-title">TDP Project</div>
+        <p class="project-desc" data-es="Proyecto de práctica de freeCodeCamp. Aplicación de conceptos de estructura y maquetación web con enfoque práctico." data-en="freeCodeCamp practice project. Applying web structure and layout concepts with a hands-on approach.">Proyecto de práctica de freeCodeCamp. Aplicación de conceptos de estructura y maquetación web con enfoque práctico.</p>
+        <div class="project-tags">
+          <span class="ptag html">HTML</span>
+          <span class="ptag css">CSS</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-card-top">
+          <div class="project-icon-wrap">📰</div>
+          <a href="https://github.com/Gtmaury/hyperblog" target="_blank" class="project-link">↗</a>
+        </div>
+        <div class="project-title">Hyperblog</div>
+        <p class="project-desc" data-es="Blog de práctica creado durante el curso profesional de Git y GitHub. Versión controlada, ramas y merges reales." data-en="Practice blog created during the professional Git & GitHub course. Version controlled with real branches and merges.">Blog de práctica creado durante el curso profesional de Git y GitHub. Versión controlada, ramas y merges reales.</p>
+        <div class="project-tags">
+          <span class="ptag html">HTML</span>
+          <span class="ptag css">CSS</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-card-top">
+          <div class="project-icon-wrap">📦</div>
+          <a href="https://github.com/Gtmaury/Proyecto-curso-html-" target="_blank" class="project-link">↗</a>
+        </div>
+        <div class="project-title">Proyecto Curso HTML</div>
+        <p class="project-desc" data-es="Proyecto final del curso de HTML. Aplicación de etiquetas semánticas, estructura de página y buenas prácticas." data-en="Final project of the HTML course. Application of semantic tags, page structure and best practices.">Proyecto final del curso de HTML. Aplicación de etiquetas semánticas, estructura de página y buenas prácticas.</p>
+        <div class="project-tags">
+          <span class="ptag html">HTML</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:2.5rem;" class="fade-in">
+      <a href="https://github.com/Gtmaury" target="_blank" class="btn-ghost" data-es="Ver todos los repositorios →" data-en="View all repositories →">Ver todos los repositorios →</a>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="educacion">
+  <div class="container">
+    <p class="section-label" data-es="Formación" data-en="Education">Formación</p>
+    <h2 class="section-title fade-in" data-es="Educación" data-en="Education">Educación</h2>
+    <div class="edu-card fade-in">
+      <div class="edu-line"></div>
+      <div>
+        <div class="edu-date">2019 – 2022</div>
+        <div class="edu-degree" data-es="T.S.U. en Logística" data-en="Technician in Logistics (T.S.U.)">T.S.U. en Logística</div>
+        <div class="edu-school">UNITEC — Universidad Tecnológica del Centro</div>
+        <div style="margin-bottom:1rem; font-size:14px; color:var(--muted);" data-es="San Diego, Carabobo, Venezuela" data-en="San Diego, Carabobo, Venezuela">San Diego, Carabobo, Venezuela</div>
+        <span class="edu-honor" data-es="🏅 Graduado con honores · Promedio 19.72/20" data-en="🏅 Graduated with honors · GPA 19.72/20">🏅 Graduado con honores · Promedio 19.72/20</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contacto">
+  <div class="container">
+    <p class="section-label" data-es="Hablemos" data-en="Let's talk">Hablemos</p>
+    <h2 class="section-title fade-in" data-es="Contacto" data-en="Contact">Contacto</h2>
+    <div class="contact-grid fade-in">
+      <div>
+        <p class="contact-intro" data-es="Estoy abierto a nuevas oportunidades, proyectos freelance o simplemente hablar de desarrollo web. ¡Escríbeme!" data-en="I'm open to new opportunities, freelance projects, or just to talk about web development. Reach out!">
+          Estoy abierto a nuevas oportunidades, proyectos freelance o simplemente hablar de desarrollo web. ¡Escríbeme!
+        </p>
+        <div class="contact-links">
+          <a href="mailto:gtmauan@gmail.com" class="contact-link-item">
+            <span class="contact-link-icon">✉️</span>
+            <div>
+              <div class="contact-link-label">Email</div>
+              <div class="contact-link-val">gtmauan@gmail.com</div>
+            </div>
+          </a>
+          <a href="https://github.com/Gtmaury" target="_blank" class="contact-link-item">
+            <span class="contact-link-icon">💻</span>
+            <div>
+              <div class="contact-link-label">GitHub</div>
+              <div class="contact-link-val">github.com/Gtmaury</div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/mauricio-gonzalez-1a5b8933b/" target="_blank" class="contact-link-item">
+            <span class="contact-link-icon">🔗</span>
+            <div>
+              <div class="contact-link-label">LinkedIn</div>
+              <div class="contact-link-val">Mauricio González</div>
+            </div>
+          </a>
+          <div class="contact-link-item">
+            <span class="contact-link-icon">📞</span>
+            <div>
+              <div class="contact-link-label" data-es="Teléfono / WhatsApp" data-en="Phone / WhatsApp">Teléfono / WhatsApp</div>
+              <div class="contact-link-val">+58 412-4604927</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-right">
+        <h3 data-es="Disponible ahora" data-en="Available now">Disponible ahora</h3>
+        <p data-es="Busco mi primera oportunidad como desarrollador frontend. Aprendo rápido, trabajo duro y me apasiona crear en la web." data-en="Looking for my first opportunity as a frontend developer. Fast learner, hard worker, and passionate about building for the web.">
+          Busco mi primera oportunidad como desarrollador frontend. Aprendo rápido, trabajo duro y me apasiona crear en la web.
+        </p>
+        <a href="mailto:gtmauan@gmail.com" class="btn-primary" data-es="Enviar mensaje →" data-en="Send message →">Enviar mensaje →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p data-es="Diseñado y construido por Mauricio González · 2025" data-en="Designed and built by Mauricio González · 2025">Diseñado y construido por Mauricio González · 2025</p>
+  </div>
+</footer>
+
+<script>
+  let lang = 'es';
+  function toggleLang() {
+    lang = lang === 'es' ? 'en' : 'es';
+    document.getElementById('lang-btn').textContent = lang === 'es' ? '🌐 EN' : '🌐 ES';
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-es]').forEach(el => {
+      const target = el.getAttribute('data-' + lang);
+      if (target) el.textContent = target;
+    });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
