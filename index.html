@@ -369,30 +369,6 @@
   .ptag.css  { background: rgba(59,130,246,0.12); color: #60a5fa; }
   .ptag.js   { background: rgba(234,179,8,0.12);  color: #fbbf24; }
 
-  /* ── EDUCATION ── */
-  #educacion { background: var(--surface); }
-  .edu-card {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 2rem;
-    max-width: 620px;
-    display: flex; gap: 1.5rem;
-  }
-  .edu-line {
-    width: 2px; background: linear-gradient(to bottom, var(--accent), transparent);
-    border-radius: 2px; flex-shrink: 0;
-  }
-  .edu-date { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
-  .edu-degree { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 4px; }
-  .edu-school { font-size: 14px; color: var(--accent2); margin-bottom: 10px; }
-  .edu-honor {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 12px; font-weight: 500;
-    padding: 4px 12px; border-radius: 999px;
-    background: rgba(250,204,21,0.08); color: #fbbf24;
-    border: 1px solid rgba(250,204,21,0.2);
-  }
 
   /* ── CONTACT ── */
   .contact-grid {
@@ -460,7 +436,7 @@
     <div class="nav-links">
       <a href="#habilidades" data-es="Habilidades" data-en="Skills">Habilidades</a>
       <a href="#proyectos" data-es="Proyectos" data-en="Projects">Proyectos</a>
-      <a href="#educacion" data-es="Educación" data-en="Education">Educación</a>
+
       <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
       <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">🌐 EN</button>
     </div>
@@ -566,84 +542,63 @@
 <!-- PROJECTS -->
 <section id="proyectos">
   <div class="container">
-    <p class="section-label" data-es="GitHub" data-en="GitHub">GitHub</p>
+    <p class="section-label" data-en="Live" data-es="En vivo">En vivo</p>
     <h2 class="section-title fade-in" data-es="Proyectos destacados" data-en="Featured projects">Proyectos destacados</h2>
     <div class="projects-grid">
 
       <div class="project-card fade-in">
         <div class="project-card-top">
           <div class="project-icon-wrap">💄</div>
-          <a href="https://github.com/Gtmaury/Serena-studio" target="_blank" class="project-link">↗</a>
+          <a href="https://serena-studio.netlify.app" target="_blank" class="project-link">↗</a>
         </div>
         <div class="project-title">Serena Studio</div>
-        <p class="project-desc" data-es="Página web completa para una marca de cosméticos. Diseño visual atractivo con maquetación avanzada en HTML y CSS." data-en="Full website for a cosmetics brand. Visually appealing design with advanced HTML and CSS layout.">Página web completa para una marca de cosméticos. Diseño visual atractivo con maquetación avanzada en HTML y CSS.</p>
+        <p class="project-desc" data-es="Página web completa para una marca de cosméticos. Diseño visual atractivo con maquetación avanzada, secciones limpias y diseño responsivo." data-en="Full website for a cosmetics brand. Visually appealing design with advanced layout, smooth sections and responsive design.">Página web completa para una marca de cosméticos. Diseño visual atractivo con maquetación avanzada, secciones光滑 y diseño responsivo.</p>
         <div class="project-tags">
           <span class="ptag html">HTML</span>
           <span class="ptag css">CSS</span>
+          <span class="ptag js">JS</span>
         </div>
       </div>
 
       <div class="project-card fade-in">
         <div class="project-card-top">
-          <div class="project-icon-wrap">🔍</div>
-          <a href="https://github.com/Gtmaury/Google-clone" target="_blank" class="project-link">↗</a>
+          <div class="project-icon-wrap">🧸</div>
+          <a href="https://toys-landing.netlify.app" target="_blank" class="project-link">↗</a>
         </div>
-        <div class="project-title">Google Clone</div>
-        <p class="project-desc" data-es="Clon fiel de la página principal de Google. Practicando posicionamiento CSS, pseudo-elementos y diseño pixel-perfect." data-en="Faithful clone of Google's homepage. Practicing CSS positioning, pseudo-elements and pixel-perfect design.">Clon fiel de la página principal de Google. Practicando posicionamiento CSS, pseudo-elementos y diseño pixel-perfect.</p>
+        <div class="project-title">Toys Landing</div>
+        <p class="project-desc" data-es="Landing page dinámica para tienda de juguetes. Diseño colorido y atractivo orientado al público infantil con animaciones suaves." data-en="Dynamic landing page for a toy store. Colorful and appealing design aimed at children with smooth animations.">Landing page dinámica para tienda de juguetes. Diseño colorido y atractivo orientado al público infantil con animaciones suaves.</p>
         <div class="project-tags">
           <span class="ptag html">HTML</span>
           <span class="ptag css">CSS</span>
+          <span class="ptag js">JS</span>
         </div>
       </div>
 
       <div class="project-card fade-in">
         <div class="project-card-top">
-          <div class="project-icon-wrap">📋</div>
-          <a href="https://github.com/Gtmaury/form-project-" target="_blank" class="project-link">↗</a>
+          <div class="project-icon-wrap">🦷</div>
+          <a href="https://odontosg.netlify.app" target="_blank" class="project-link">↗</a>
         </div>
-        <div class="project-title">Form Project</div>
-        <p class="project-desc" data-es="Formulario web completo desarrollado en freeCodeCamp. Validación de campos, accesibilidad y diseño responsivo." data-en="Complete web form built on freeCodeCamp. Field validation, accessibility and responsive design.">Formulario web completo desarrollado en freeCodeCamp. Validación de campos, accesibilidad y diseño responsivo.</p>
+        <div class="project-title">OdontosG</div>
+        <p class="project-desc" data-es="Sitio web para clínica dental. Diseño profesional y limpio, con secciones de servicios, contactos y información de tratamientos." data-en="Website for a dental clinic. Professional and clean design, with sections for services, contacts and treatment information.">Sitio web para clínica dental. Diseño profesional y limpio, con secciones de servicios, contactos y información de tratamientos.</p>
         <div class="project-tags">
           <span class="ptag html">HTML</span>
           <span class="ptag css">CSS</span>
+          <span class="ptag js">JS</span>
         </div>
       </div>
 
       <div class="project-card fade-in">
         <div class="project-card-top">
-          <div class="project-icon-wrap">🏗️</div>
-          <a href="https://github.com/Gtmaury/TDP-project" target="_blank" class="project-link">↗</a>
+          <div class="project-icon-wrap">📺</div>
+          <a href="https://tvzamora.netlify.app" target="_blank" class="project-link">↗</a>
         </div>
-        <div class="project-title">TDP Project</div>
-        <p class="project-desc" data-es="Proyecto de práctica de freeCodeCamp. Aplicación de conceptos de estructura y maquetación web con enfoque práctico." data-en="freeCodeCamp practice project. Applying web structure and layout concepts with a hands-on approach.">Proyecto de práctica de freeCodeCamp. Aplicación de conceptos de estructura y maquetación web con enfoque práctico.</p>
+        <div class="project-title">TV Zamora</div>
+        <p class="project-desc" data-es="Página web para tienda de electrónica y televisiones. Exhibición de productos con diseño moderno y navegación intuitiva." data-en="Website for an electronics and television store. Product showcase with modern design and intuitive navigation.">Página web para tienda de electrónica y televisiones. Exhibición de productos con diseño moderno y navegación intuitiva.</p>
         <div class="project-tags">
           <span class="ptag html">HTML</span>
           <span class="ptag css">CSS</span>
-        </div>
-      </div>
-
-      <div class="project-card fade-in">
-        <div class="project-card-top">
-          <div class="project-icon-wrap">📰</div>
-          <a href="https://github.com/Gtmaury/hyperblog" target="_blank" class="project-link">↗</a>
-        </div>
-        <div class="project-title">Hyperblog</div>
-        <p class="project-desc" data-es="Blog de práctica creado durante el curso profesional de Git y GitHub. Versión controlada, ramas y merges reales." data-en="Practice blog created during the professional Git & GitHub course. Version controlled with real branches and merges.">Blog de práctica creado durante el curso profesional de Git y GitHub. Versión controlada, ramas y merges reales.</p>
-        <div class="project-tags">
-          <span class="ptag html">HTML</span>
-          <span class="ptag css">CSS</span>
-        </div>
-      </div>
-
-      <div class="project-card fade-in">
-        <div class="project-card-top">
-          <div class="project-icon-wrap">📦</div>
-          <a href="https://github.com/Gtmaury/Proyecto-curso-html-" target="_blank" class="project-link">↗</a>
-        </div>
-        <div class="project-title">Proyecto Curso HTML</div>
-        <p class="project-desc" data-es="Proyecto final del curso de HTML. Aplicación de etiquetas semánticas, estructura de página y buenas prácticas." data-en="Final project of the HTML course. Application of semantic tags, page structure and best practices.">Proyecto final del curso de HTML. Aplicación de etiquetas semánticas, estructura de página y buenas prácticas.</p>
-        <div class="project-tags">
-          <span class="ptag html">HTML</span>
+          <span class="ptag js">JS</span>
         </div>
       </div>
 
@@ -655,23 +610,7 @@
   </div>
 </section>
 
-<!-- EDUCATION -->
-<section id="educacion">
-  <div class="container">
-    <p class="section-label" data-es="Formación" data-en="Education">Formación</p>
-    <h2 class="section-title fade-in" data-es="Educación" data-en="Education">Educación</h2>
-    <div class="edu-card fade-in">
-      <div class="edu-line"></div>
-      <div>
-        <div class="edu-date">2019 – 2022</div>
-        <div class="edu-degree" data-es="T.S.U. en Logística" data-en="Technician in Logistics (T.S.U.)">T.S.U. en Logística</div>
-        <div class="edu-school">UNITEC — Universidad Tecnológica del Centro</div>
-        <div style="margin-bottom:1rem; font-size:14px; color:var(--muted);" data-es="San Diego, Carabobo, Venezuela" data-en="San Diego, Carabobo, Venezuela">San Diego, Carabobo, Venezuela</div>
-        <span class="edu-honor" data-es="🏅 Graduado con honores · Promedio 19.72/20" data-en="🏅 Graduated with honors · GPA 19.72/20">🏅 Graduado con honores · Promedio 19.72/20</span>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- CONTACT -->
 <section id="contacto">
