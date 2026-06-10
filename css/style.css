@@ -278,40 +278,6 @@ nav .container {
   transform: translateY(-3px);
 }
 
-.open-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 8px 18px;
-  border-radius: 999px;
-  background: var(--green-bg);
-  color: var(--green);
-  border: 1px solid rgba(74, 222, 128, 0.2);
-  letter-spacing: 0.02em;
-}
-
-.open-tag::before {
-  content: '';
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--green);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.3;
-  }
-}
-
 .hero-avatar-wrap {
   position: relative;
 }
