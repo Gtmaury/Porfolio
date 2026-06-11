@@ -41,3 +41,52 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ── NAVIGATION SCROLL EFFECT & PROGRESS BAR ──
+const nav = document.querySelector('nav');
+const scrollBar = document.getElementById('scroll-bar');
+
+window.addEventListener('scroll', () => {
+  // Toggle nav scrolled class
+  if (window.scrollY > 50) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+
+  // Update scroll progress bar
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  if (scrollBar) {
+    scrollBar.style.width = scrollPercent + '%';
+  }
+});
+
+// ── CUSTOM CURSOR GLOW ──
+const cursorGlow = document.getElementById('cursor-glow');
+if (cursorGlow) {
+  document.addEventListener('mousemove', (e) => {
+    cursorGlow.style.left = e.clientX + 'px';
+    cursorGlow.style.top = e.clientY + 'px';
+    cursorGlow.style.opacity = 1;
+  });
+  
+  document.addEventListener('mouseleave', () => {
+    cursorGlow.style.opacity = 0;
+  });
+}
+
+// ── ANIMATE SKILL PROGRESS BARS ON SCROLL ──
+const progressObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const width = el.getAttribute('data-width');
+      el.style.width = width;
+      progressObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.progress-fill').forEach(el => progressObserver.observe(el));
