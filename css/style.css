@@ -384,6 +384,7 @@ nav .container {
 /* ── SECTION SHARED ── */
 section {
   padding: 5rem 0;
+  scroll-margin-top: 80px;
 }
 
 .section-label {

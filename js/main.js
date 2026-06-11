@@ -90,3 +90,49 @@ const progressObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 
 document.querySelectorAll('.progress-fill').forEach(el => progressObserver.observe(el));
+
+// ── CUSTOM SMOOTH SCROLL FOR ANCHOR LINKS ──
+function easeInOutCubic(t) {
+  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+}
+
+function smoothScrollTo(targetSelector, duration = 850) {
+  const target = document.querySelector(targetSelector);
+  if (!target) return;
+
+  const navEl = document.querySelector('nav');
+  const navHeight = navEl ? navEl.offsetHeight : 80;
+  
+  // Calculate offset top position
+  const targetPosition = target.getBoundingClientRect().top + window.scrollY - navHeight;
+  const startPosition = window.scrollY;
+  const distance = targetPosition - startPosition;
+  let startTime = null;
+
+  function animation(currentTime) {
+    if (startTime === null) startTime = currentTime;
+    const timeElapsed = currentTime - startTime;
+    const run = easeInOutCubic(Math.min(timeElapsed / duration, 1));
+    window.scrollTo(0, startPosition + distance * run);
+    if (timeElapsed < duration) {
+      requestAnimationFrame(animation);
+    }
+  }
+
+  requestAnimationFrame(animation);
+}
+
+// Intercept all internal anchor clicks
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const targetId = this.getAttribute('href');
+    if (!targetId) return;
+    
+    e.preventDefault();
+    if (targetId === '#') {
+      smoothScrollTo('html', 800);
+    } else {
+      smoothScrollTo(targetId, 800);
+    }
+  });
+});
