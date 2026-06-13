@@ -136,3 +136,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// Make entire project cards clickable
+document.querySelectorAll('.project-card').forEach(card => {
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', (e) => {
+    // If the click is inside a link, let the browser handle it natively
+    if (e.target.closest('a')) return;
+    
+    const link = card.querySelector('.project-link');
+    if (link) {
+      link.click();
+    }
+  });
+});
