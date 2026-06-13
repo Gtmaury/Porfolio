@@ -220,6 +220,8 @@ nav .container {
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+  position: relative;
+  z-index: 5;
 }
 
 .hero-eyebrow {
@@ -435,8 +437,8 @@ section {
   background: linear-gradient(
     to bottom,
     var(--bg) 0%,
-    var(--surface) 200px,
-    var(--surface) calc(100% - 200px),
+    var(--surface) 15%,
+    var(--surface) 85%,
     var(--bg) 100%
   );
   position: relative;
