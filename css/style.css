@@ -420,7 +420,13 @@ section {
 
 /* ── SKILLS ── */
 #habilidades {
-  background: var(--surface);
+  background: linear-gradient(
+    to bottom,
+    var(--bg) 0%,
+    var(--surface) 200px,
+    var(--surface) calc(100% - 200px),
+    var(--bg) 100%
+  );
   position: relative;
 }
 
