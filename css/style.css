@@ -733,6 +733,14 @@ section {
   transition: all 0.3s;
 }
 
+.project-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+
+.project-card:hover .project-link,
 .project-link:hover {
   background: var(--accent);
   color: #fff;
