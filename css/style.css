@@ -178,6 +178,10 @@ nav .container {
   overflow: hidden;
 }
 
+.hero .container {
+  z-index: 2;
+}
+
 .hero::after {
   content: '';
   position: absolute;
