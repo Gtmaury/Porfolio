@@ -680,6 +680,10 @@ section {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  
+  .project-card:last-child:nth-child(odd) {
+    grid-column: span 2;
+  }
 }
 
 .project-card {
@@ -826,6 +830,24 @@ section {
   background: rgba(234, 179, 8, 0.1);
   color: #fbbf24;
   border-color: rgba(234, 179, 8, 0.2);
+}
+
+.ptag.react {
+  background: rgba(6, 182, 212, 0.1);
+  color: #22d3ee;
+  border-color: rgba(6, 182, 212, 0.2);
+}
+
+.ptag.tailwind {
+  background: rgba(14, 165, 233, 0.1);
+  color: #38bdf8;
+  border-color: rgba(14, 165, 233, 0.2);
+}
+
+.ptag.vite {
+  background: rgba(139, 92, 246, 0.1);
+  color: #a78bfa;
+  border-color: rgba(139, 92, 246, 0.2);
 }
 
 /* ── CONTACT ── */
