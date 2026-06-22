@@ -1,6 +1,6 @@
 # Mauricio González — Portafolio Profesional
 
-Este es el repositorio oficial de mi portafolio profesional como **Desarrollador Frontend**. Diseñado con una estética moderna, limpia y minimalista, el sitio web muestra mi stack técnico, habilidades secundarias, certificaciones obtenidas y mis proyectos destacados.
+Este es el repositorio oficial de mi portafolio profesional como **Desarrollador FullStack**. Diseñado con una estética moderna, limpia y minimalista, el sitio web muestra mi stack técnico, habilidades secundarias, certificaciones obtenidas y mis proyectos destacados.
 
 ## 🚀 Características del Proyecto
 
