@@ -77,19 +77,8 @@ if (cursorGlow) {
   });
 }
 
-// ── ANIMATE SKILL PROGRESS BARS ON SCROLL ──
-const progressObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      const width = el.getAttribute('data-width');
-      el.style.width = width;
-      progressObserver.unobserve(el);
-    }
-  });
-}, { threshold: 0.15 });
 
-document.querySelectorAll('.progress-fill').forEach(el => progressObserver.observe(el));
+
 
 // ── CUSTOM SMOOTH SCROLL FOR ANCHOR LINKS ──
 function easeInOutCubic(t) {

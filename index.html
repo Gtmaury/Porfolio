@@ -11,8 +11,8 @@
     href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
     rel="stylesheet" />
   <link rel="icon" type="image/png" href="img/favicon.png" />
-  <link rel="stylesheet" href="css/style.css?v=1.3" />
-  <script src="js/main.js?v=1.1" defer></script>
+  <link rel="stylesheet" href="css/style.css?v=6.0" />
+  <script src="js/main.js?v=2.0" defer></script>
 </head>
 
 <body>
@@ -25,8 +25,8 @@
     <div class="container">
       <a href="#" class="nav-logo">MG<span>.</span></a>
       <div class="nav-links">
-        <a href="#habilidades" data-es="Habilidades" data-en="Skills">Habilidades</a>
         <a href="#proyectos" data-es="Proyectos" data-en="Projects">Proyectos</a>
+        <a href="#habilidades" data-es="Habilidades" data-en="Skills">Habilidades</a>
         <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
         <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">🌐 EN</button>
       </div>
@@ -66,244 +66,137 @@
     </div>
   </section>
 
-  <!-- SKILLS -->
-  <section id="habilidades">
-    <div class="container">
-      <p class="section-label" data-es="Stack técnico" data-en="Tech stack">Stack técnico</p>
-      <div class="skills-headline fade-in">
-        <h2 class="section-title" data-es="Mis habilidades" data-en="My skills">Mis habilidades</h2>
-        <p data-es="Me enfoco en dominar las tecnologías fundamentales del desarrollo frontend. Bases sólidas, código limpio y mejora constante."
-          data-en="I focus on mastering the fundamentals of frontend development. Solid foundations, clean code, and constant improvement.">
-          Me enfoco en dominar las tecnologías fundamentales del desarrollo frontend. Bases sólidas, código limpio y
-          mejora constante.
-        </p>
-      </div>
-
-      <div class="stack-main fade-in">
-        <div class="stack-card html">
-          <span class="stack-icon">🌐</span>
-          <div class="stack-name">HTML5</div>
-          <div class="stack-level" data-es="Avanzado" data-en="Advanced">Avanzado</div>
-          <div class="progress-bar">
-            <div class="progress-fill" data-width="85%" style="width: 0%"></div>
-          </div>
-          <div class="stack-desc" data-es="Estructura semántica, accesibilidad, formularios y buenas prácticas."
-            data-en="Semantic structure, accessibility, forms and best practices.">Estructura semántica, accesibilidad,
-            formularios y buenas prácticas.</div>
-        </div>
-        <div class="stack-card css">
-          <span class="stack-icon">🎨</span>
-          <div class="stack-name">CSS3</div>
-          <div class="stack-level" data-es="Avanzado" data-en="Advanced">Avanzado</div>
-          <div class="progress-bar">
-            <div class="progress-fill" data-width="82%" style="width: 0%"></div>
-          </div>
-          <div class="stack-desc" data-es="Flexbox, Grid, animaciones, diseño responsivo y metodología BEM."
-            data-en="Flexbox, Grid, animations, responsive design and BEM methodology.">Flexbox, Grid, animaciones,
-            diseño responsivo y metodología BEM.</div>
-        </div>
-        <div class="stack-card js">
-          <span class="stack-icon">⚡</span>
-          <div class="stack-name">JavaScript</div>
-          <div class="stack-level" data-es="Fundamentos" data-en="Fundamentals">Fundamentos</div>
-          <div class="progress-bar">
-            <div class="progress-fill" data-width="55%" style="width: 0%"></div>
-          </div>
-          <div class="stack-desc" data-es="Variables, funciones, DOM, eventos y lógica de programación."
-            data-en="Variables, functions, DOM, events and programming logic.">Variables, funciones, DOM, eventos y
-            lógica de programación.</div>
-        </div>
-        <div class="stack-card git">
-          <span class="stack-icon">🔀</span>
-          <div class="stack-name">Git & GitHub</div>
-          <div class="stack-level" data-es="Intermedio" data-en="Intermediate">Intermedio</div>
-          <div class="progress-bar">
-            <div class="progress-fill" data-width="65%" style="width: 0%"></div>
-          </div>
-          <div class="stack-desc" data-es="Control de versiones, ramas, pull requests y flujos de trabajo."
-            data-en="Version control, branches, pull requests and workflows.">Control de versiones, ramas, pull requests
-            y flujos de trabajo.</div>
-        </div>
-      </div>
-
-      <div class="skills-secondary fade-in">
-        <div>
-          <h3 class="secondary-title" data-es="Otras habilidades" data-en="Other skills">Otras habilidades</h3>
-          <div class="extras-list">
-            <div class="extra-item">
-              <div class="extra-dot"></div><span data-es="Programación lógica" data-en="Programming logic">Programación
-                lógica</span>
-            </div>
-            <div class="extra-item">
-              <div class="extra-dot"></div><span>CLI / Terminal</span>
-            </div>
-            <div class="extra-item">
-              <div class="extra-dot"></div><span data-es="Diseño responsivo" data-en="Responsive design">Diseño
-                responsivo</span>
-            </div>
-            <div class="extra-item">
-              <div class="extra-dot"></div><span data-es="Resolución de problemas" data-en="Problem solving">Resolución
-                de problemas</span>
-            </div>
-            <div class="extra-item">
-              <div class="extra-dot"></div><span data-es="Aprendizaje autodidacta"
-                data-en="Self-directed learning">Aprendizaje autodidacta</span>
-            </div>
-            <div class="extra-item">
-              <div class="extra-dot"></div><span data-es="Español nativo · Inglés B2"
-                data-en="Spanish native · English B2">Español nativo · Inglés B2</span>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <h3 class="secondary-title" data-es="Certificaciones — Platzi" data-en="Certifications — Platzi">
-            Certificaciones — Platzi</h3>
-          <div class="certs-grid">
-            <span class="cert-chip" data-es="HTML & CSS Práctico · 16h" data-en="Practical HTML & CSS · 16h">HTML & CSS
-              Práctico · 16h</span>
-            <span class="cert-chip" data-es="HTML & CSS Definitivo · 23h" data-en="Definitive HTML & CSS · 23h">HTML &
-              CSS Definitivo · 23h</span>
-            <span class="cert-chip" data-es="Fundamentos de JavaScript · 19h"
-              data-en="JavaScript Fundamentals · 19h">Fundamentos de JavaScript · 19h</span>
-            <span class="cert-chip" data-es="Terminal & CLI · 18h" data-en="Terminal & CLI · 18h">Terminal & CLI ·
-              18h</span>
-            <span class="cert-chip" data-es="Bases de Ing. de Software · 14h"
-              data-en="Software Engineering Basics · 14h">Bases de Ing. de Software · 14h</span>
-            <span class="cert-chip" data-es="Frontend Developer Práctico · 13h"
-              data-en="Practical Frontend Dev · 13h">Frontend Developer Práctico · 13h</span>
-            <span class="cert-chip" data-es="Ruta Frontend Developer · 15h" data-en="Frontend Developer Path · 15h">Ruta
-              Frontend Developer · 15h</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- PROJECTS -->
   <section id="proyectos">
     <div class="container">
       <p class="section-label" data-en="Live" data-es="En vivo">En vivo</p>
-      <h2 class="section-title fade-in" data-es="Proyectos destacados" data-en="Featured projects">Proyectos destacados
-      </h2>
-      <div class="projects-grid">
+      <h2 class="section-title fade-in" data-es="Proyectos destacados" data-en="Featured projects">Proyectos destacados</h2>
+      
+      <div class="projects-grid showcase-grid">
 
-        <div class="project-card fade-in">
-          <div class="project-card-top">
-            <div class="project-icon-wrap">💄</div>
-            <a href="https://serena-studio.netlify.app" target="_blank" class="project-link">↗</a>
+        <div class="project-card showcase-card fade-in">
+          <div class="project-image-wrap">
+            <img src="img/projects/serena.png" alt="Serena Studio">
+            <a href="https://serena-studio.netlify.app" target="_blank" class="project-link-overlay">↗</a>
           </div>
-          <div class="project-title">Serena Studio</div>
-          <p class="project-desc"
-            data-es="Página web completa para una marca de cosméticos. Diseño visual atractivo con maquetación avanzada, secciones limpias y diseño responsivo."
-            data-en="Full website for a cosmetics brand. Visually appealing design with advanced layout, smooth sections and responsive design.">
-            Página web completa para una marca de cosméticos. Diseño visual atractivo con maquetación avanzada,
-            secciones limpias y diseño responsivo.</p>
-          <div class="project-tags">
-            <span class="ptag html">HTML</span>
-            <span class="ptag css">CSS</span>
-            <span class="ptag js">JS</span>
+          <div class="project-content">
+            <div class="project-title">Serena Studio</div>
+            <p class="project-desc"
+              data-es="Página web completa para una marca de cosméticos. Diseño visual atractivo con maquetación avanzada, secciones limpias y diseño responsivo."
+              data-en="Full website for a cosmetics brand. Visually appealing design with advanced layout, smooth sections and responsive design.">
+              Página web completa para una marca de cosméticos. Diseño visual atractivo con maquetación avanzada, secciones limpias y diseño responsivo.</p>
+            <div class="project-tags">
+              <span class="ptag html">HTML</span>
+              <span class="ptag css">CSS</span>
+              <span class="ptag js">JS</span>
+            </div>
           </div>
         </div>
 
-        <div class="project-card fade-in">
-          <div class="project-card-top">
-            <div class="project-icon-wrap">🌐</div>
-            <a href="https://www.hcstrading.org/" target="_blank" class="project-link">↗</a>
+        <div class="project-card showcase-card fade-in">
+          <div class="project-image-wrap">
+            <img src="img/projects/hcs.png" alt="HCS Trading">
+            <a href="https://www.hcstrading.org/" target="_blank" class="project-link-overlay">↗</a>
           </div>
-          <div class="project-title">HCS Trading</div>
-          <p class="project-desc"
-            data-es="Sitio web corporativo para distribuidora internacional de tecnología y electrónica. Soluciones de red, sistemas de seguridad y suministro global."
-            data-en="Corporate website for an international technology and electronics distributor. Networking solutions, security systems, and global supply.">
-            Sitio web corporativo para distribuidora internacional de tecnología y electrónica. Soluciones de red, sistemas de seguridad y suministro global.</p>
-          <div class="project-tags">
-            <span class="ptag html">HTML</span>
-            <span class="ptag css">CSS</span>
-            <span class="ptag js">JS</span>
-          </div>
-        </div>
-
-        <div class="project-card fade-in">
-          <div class="project-card-top">
-            <div class="project-icon-wrap">☕</div>
-            <a href="https://www.torinocaffe.info/" target="_blank" class="project-link">↗</a>
-          </div>
-          <div class="project-title">Torino Caffè</div>
-          <p class="project-desc"
-            data-es="Plataforma web para academia de barismo. Información de cursos de café espresso, certificaciones internacionales y reserva de capacitaciones."
-            data-en="Web platform for a barista academy. Information on espresso coffee courses, international certifications, and training reservations.">
-            Plataforma web para academia de barismo. Información de cursos de café espresso, certificaciones internacionales y reserva de capacitaciones.</p>
-          <div class="project-tags">
-            <span class="ptag html">HTML</span>
-            <span class="ptag css">CSS</span>
-            <span class="ptag js">JS</span>
+          <div class="project-content">
+            <div class="project-title">HCS Trading</div>
+            <p class="project-desc"
+              data-es="Sitio web corporativo para distribuidora internacional de tecnología y electrónica. Soluciones de red, sistemas de seguridad y suministro global."
+              data-en="Corporate website for an international technology and electronics distributor. Networking solutions, security systems, and global supply.">
+              Sitio web corporativo para distribuidora internacional de tecnología y electrónica. Soluciones de red, sistemas de seguridad y suministro global.</p>
+            <div class="project-tags">
+              <span class="ptag html">HTML</span>
+              <span class="ptag css">CSS</span>
+              <span class="ptag js">JS</span>
+            </div>
           </div>
         </div>
 
-        <div class="project-card fade-in">
-          <div class="project-card-top">
-            <div class="project-icon-wrap">🦷</div>
-            <a href="https://odontosg.netlify.app" target="_blank" class="project-link">↗</a>
+        <div class="project-card showcase-card fade-in">
+          <div class="project-image-wrap">
+            <img src="img/projects/torino.png" alt="Torino Caffè">
+            <a href="https://www.torinocaffe.info/" target="_blank" class="project-link-overlay">↗</a>
           </div>
-          <div class="project-title">OdontosG</div>
-          <p class="project-desc"
-            data-es="Sitio web para clínica dental. Diseño profesional y limpio, con secciones de servicios, contactos y información de tratamientos."
-            data-en="Website for a dental clinic. Professional and clean design, with sections for services, contacts and treatment information.">
-            Sitio web para clínica dental. Diseño profesional y limpio, con secciones de servicios, contactos y
-            información de tratamientos.</p>
-          <div class="project-tags">
-            <span class="ptag html">HTML</span>
-            <span class="ptag css">CSS</span>
-            <span class="ptag js">JS</span>
-          </div>
-        </div>
-
-        <div class="project-card fade-in">
-          <div class="project-card-top">
-            <div class="project-icon-wrap">📺</div>
-            <a href="https://tvzamora.netlify.app" target="_blank" class="project-link">↗</a>
-          </div>
-          <div class="project-title">TV Zamora</div>
-          <p class="project-desc"
-            data-es="Página web para tienda de electrónica y televisiones. Exhibición de productos con diseño moderno y navegación intuitiva."
-            data-en="Website for an electronics and television store. Product showcase with modern design and intuitive navigation.">
-            Página web para tienda de electrónica y televisiones. Exhibición de productos con diseño moderno y
-            navegación intuitiva.</p>
-          <div class="project-tags">
-            <span class="ptag html">HTML</span>
-            <span class="ptag css">CSS</span>
-            <span class="ptag js">JS</span>
+          <div class="project-content">
+            <div class="project-title">Torino Caffè</div>
+            <p class="project-desc"
+              data-es="Plataforma web para academia de barismo. Información de cursos de café espresso, certificaciones internacionales y reserva de capacitaciones."
+              data-en="Web platform for a barista academy. Information on espresso coffee courses, international certifications, and training reservations.">
+              Plataforma web para academia de barismo. Información de cursos de café espresso, certificaciones internacionales y reserva de capacitaciones.</p>
+            <div class="project-tags">
+              <span class="ptag html">HTML</span>
+              <span class="ptag css">CSS</span>
+              <span class="ptag js">JS</span>
+            </div>
           </div>
         </div>
 
-        <div class="project-card fade-in">
-          <div class="project-card-top">
-            <div class="project-icon-wrap">🎨</div>
-            <a href="https://colormar.vercel.app/" target="_blank" class="project-link">↗</a>
+        <div class="project-card showcase-card fade-in">
+          <div class="project-image-wrap">
+            <img src="img/projects/odontosg.png" alt="OdontosG">
+            <a href="https://odontosg.netlify.app" target="_blank" class="project-link-overlay">↗</a>
           </div>
-          <div class="project-title">Colormar</div>
-          <p class="project-desc"
-            data-es="Plataforma web interactiva para una marca premium de pinturas y colorimetría. Incluye selector de colores personalizado, calculadora de cobertura y cotizaciones vía WhatsApp."
-            data-en="Interactive web platform for a premium paint and colorimetry brand. Features a custom color selector, wall coverage calculator, and direct WhatsApp quoting.">
-            Plataforma web interactiva para una marca premium de pinturas y colorimetría. Incluye selector de colores personalizado, calculadora de cobertura y cotizaciones vía WhatsApp.</p>
-          <div class="project-tags">
-            <span class="ptag react">React</span>
-            <span class="ptag tailwind">Tailwind</span>
-            <span class="ptag vite">Vite</span>
+          <div class="project-content">
+            <div class="project-title">OdontosG</div>
+            <p class="project-desc"
+              data-es="Sitio web para clínica dental. Diseño profesional y limpio, con secciones de servicios, contactos y información de tratamientos."
+              data-en="Website for a dental clinic. Professional and clean design, with sections for services, contacts and treatment information.">
+              Sitio web para clínica dental. Diseño profesional y limpio, con secciones de servicios, contactos y información de tratamientos.</p>
+            <div class="project-tags">
+              <span class="ptag html">HTML</span>
+              <span class="ptag css">CSS</span>
+              <span class="ptag js">JS</span>
+            </div>
           </div>
         </div>
 
-        <div class="project-card fade-in">
-          <div class="project-card-top">
-            <div class="project-icon-wrap">💻</div>
-            <a href="https://github.com/Gtmaury" target="_blank" class="project-link">↗</a>
+        <div class="project-card showcase-card fade-in">
+          <div class="project-image-wrap">
+            <img src="img/projects/tvzamora.png" alt="TV Zamora">
+            <a href="https://tvzamora.netlify.app" target="_blank" class="project-link-overlay">↗</a>
           </div>
-          <div class="project-title github" data-es="Más Proyectos" data-en="More Projects">Más Proyectos</div>
+          <div class="project-content">
+            <div class="project-title">TV Zamora</div>
+            <p class="project-desc"
+              data-es="Página web para tienda de electrónica y televisiones. Exhibición de productos con diseño moderno y navegación intuitiva."
+              data-en="Website for an electronics and television store. Product showcase with modern design and intuitive navigation.">
+              Página web para tienda de electrónica y televisiones. Exhibición de productos con diseño moderno y navegación intuitiva.</p>
+            <div class="project-tags">
+              <span class="ptag html">HTML</span>
+              <span class="ptag css">CSS</span>
+              <span class="ptag js">JS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card showcase-card fade-in">
+          <div class="project-image-wrap">
+            <img src="img/projects/colormar.png" alt="Colormar">
+            <a href="https://colormar.vercel.app/" target="_blank" class="project-link-overlay">↗</a>
+          </div>
+          <div class="project-content">
+            <div class="project-title">Colormar</div>
+            <p class="project-desc"
+              data-es="Plataforma web interactiva para una marca premium de pinturas y colorimetría. Incluye selector de colores personalizado, calculadora de cobertura y cotizaciones vía WhatsApp."
+              data-en="Interactive web platform for a premium paint and colorimetry brand. Features a custom color selector, wall coverage calculator, and direct WhatsApp quoting.">
+              Plataforma web interactiva para una marca premium de pinturas y colorimetría. Incluye selector de colores personalizado, calculadora de cobertura y cotizaciones vía WhatsApp.</p>
+            <div class="project-tags">
+              <span class="ptag react">React</span>
+              <span class="ptag tailwind">Tailwind</span>
+              <span class="ptag vite">Vite</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- GITHUB CARD (Text only) -->
+        <div class="project-card fade-in" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 3rem;">
+          <div class="project-icon-wrap" style="margin: 0 auto 1.5rem;">💻</div>
+          <a href="https://github.com/Gtmaury" target="_blank" class="project-title github" data-es="Más Proyectos" data-en="More Projects" style="margin-bottom: 1rem; display: block; text-decoration: none;">Más Proyectos</a>
           <p class="project-desc"
             data-es="Explora mis repositorios en GitHub. Código fuente de mis proyectos, retos de programación lógica, configuraciones y contribuciones de código abierto."
             data-en="Explore my repositories on GitHub. Source code of my projects, logic programming challenges, configurations, and open-source contributions.">
             Explora mis repositorios en GitHub. Código fuente de mis proyectos, retos de programación lógica, configuraciones y contribuciones de código abierto.</p>
-          <div class="project-tags">
+          <div class="project-tags" style="justify-content: center; margin-top: auto;">
             <span class="ptag html">Git</span>
             <span class="ptag css">GitHub</span>
             <span class="ptag js">Código</span>
@@ -312,9 +205,47 @@
 
       </div>
 
-      <div style="text-align:center; margin-top:2.5rem;" class="fade-in">
+      <div style="text-align:center; margin-top:3.5rem;" class="fade-in">
         <a href="https://github.com/Gtmaury" target="_blank" class="btn-ghost" data-es="Ver todos los repositorios →"
           data-en="View all repositories →">Ver todos los repositorios →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS (Minimalized) -->
+  <section id="habilidades" style="padding: 4rem 0;">
+    <div class="container">
+      <h2 class="section-title fade-in" style="font-size: 1.5rem; margin-bottom: 2rem; text-align: center;" data-es="Herramientas & Tecnologías" data-en="Tools & Technologies">Herramientas & Tecnologías</h2>
+      
+      <div class="skills-minimal-grid fade-in">
+         <div class="skill-chip">
+           <span class="skill-icon">🌐</span>
+           <span class="skill-name">HTML5</span>
+         </div>
+         <div class="skill-chip">
+           <span class="skill-icon">🎨</span>
+           <span class="skill-name">CSS3</span>
+         </div>
+         <div class="skill-chip">
+           <span class="skill-icon">⚡</span>
+           <span class="skill-name">JavaScript</span>
+         </div>
+         <div class="skill-chip">
+           <span class="skill-icon">🔀</span>
+           <span class="skill-name">Git & GitHub</span>
+         </div>
+         <div class="skill-chip">
+           <span class="skill-icon">⚛️</span>
+           <span class="skill-name">React</span>
+         </div>
+         <div class="skill-chip">
+           <span class="skill-icon">💅</span>
+           <span class="skill-name">Tailwind</span>
+         </div>
+         <div class="skill-chip">
+           <span class="skill-icon">💬</span>
+           <span class="skill-name" data-es="Inglés" data-en="English">Inglés</span>
+         </div>
       </div>
     </div>
   </section>
@@ -416,41 +347,8 @@
   <footer>
     <div class="container">
       <div class="footer-content">
-        <div class="footer-socials">
-          <a href="https://github.com/Gtmaury" target="_blank" class="footer-social-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path
-                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-              <path d="M9 18c-4.51 2-5-2-7-2" />
-            </svg>
-          </a>
-          <a href="https://www.linkedin.com/in/mauricio-gonzalez-1a5b8933b/" target="_blank" class="footer-social-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-              <rect width="4" height="12" x="2" y="9" />
-              <circle cx="4" cy="4" r="2" />
-            </svg>
-          </a>
-          <a href="https://www.instagram.com/gtmaua/" target="_blank" class="footer-social-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-            </svg>
-          </a>
-          <a href="https://www.threads.net/@gtmaua" target="_blank" class="footer-social-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-            </svg>
-          </a>
-        </div>
-        <p class="footer-copy" data-es="Diseñado y construido por Mauricio González · 2025"
-          data-en="Designed and built by Mauricio González · 2025">Diseñado y construido por Mauricio González · 2025
+        <p class="footer-copy" data-es="Diseñado y construido por Mauricio González · 2026"
+          data-en="Designed and built by Mauricio González · 2026">Diseñado y construido por Mauricio González · 2026
         </p>
       </div>
     </div>
