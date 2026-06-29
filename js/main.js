@@ -197,9 +197,22 @@ document.querySelectorAll('.project-card').forEach(card => {
   window.addEventListener('touchend', (e) => {
     if (isTransitioning) return;
     const diff = touchStartY - e.changedTouches[0].clientY;
+    
     if (Math.abs(diff) > 50) {
-      if (diff > 0) goToLayer(currentLayer + 1);
-      else goToLayer(currentLayer - 1);
+      const activeLayer = layers[currentLayer];
+      const canScrollInside = activeLayer.scrollHeight > activeLayer.clientHeight + 50;
+      const atTop = activeLayer.scrollTop <= 5;
+      const atBottom = activeLayer.scrollTop + activeLayer.clientHeight >= activeLayer.scrollHeight - 5;
+
+      if (diff > 0) {
+        // Swiping up (scrolling down)
+        if (canScrollInside && !atBottom) return; // Let native scroll happen
+        goToLayer(currentLayer + 1);
+      } else {
+        // Swiping down (scrolling up)
+        if (canScrollInside && !atTop) return; // Let native scroll happen
+        goToLayer(currentLayer - 1);
+      }
     }
   });
 

@@ -219,6 +219,10 @@ nav .container {
   align-items: center;
 }
 
+@media (max-width: 768px) {
+  section { padding: 6rem 0 3.5rem; }
+}
+
 .hero-content {
   display: flex;
   flex-direction: column;
@@ -1037,11 +1041,24 @@ footer {
   }
 
   section {
-    padding: 3.5rem 0;
+    padding: 6rem 0 3.5rem;
   }
 
   .section-title {
     margin-bottom: 2.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 10vw, 4rem); /* Prevent overflow on small screens */
+  }
+
+  .contact-grid {
+    gap: 1.5rem !important;
+  }
+  
+  .contact-links {
+    grid-template-columns: 1fr; /* Stack vertically on very small screens */
+    width: 100%;
   }
 
   .hero-actions {
@@ -1231,7 +1248,7 @@ footer {
   }
 
   section {
-    padding: 3.5rem 0;
+    padding: 6rem 0 3.5rem;
   }
 
   .section-title {
