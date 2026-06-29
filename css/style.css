@@ -1046,6 +1046,7 @@ footer {
 
   .section-title {
     margin-bottom: 2.5rem;
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
   }
 
   .hero-title {
@@ -1253,6 +1254,7 @@ footer {
 
   .section-title {
     margin-bottom: 2.5rem;
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
   }
 
   .hero-actions {
@@ -1446,6 +1448,7 @@ html, body {
   left: 0;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   background-color: var(--bg);
   overflow-y: auto;
   overflow-x: hidden;
