@@ -154,6 +154,18 @@ document.querySelectorAll('.project-card').forEach(card => {
     layers[0].classList.add('active');
   }
 
+  // Handle navigation arrows
+  document.querySelectorAll('.nav-arrow').forEach(arrow => {
+    arrow.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (arrow.classList.contains('up')) {
+        goToLayer(currentLayer - 1, true);
+      } else if (arrow.classList.contains('down')) {
+        goToLayer(currentLayer + 1, true);
+      }
+    });
+  });
+
   // ── WHEEL EVENT ──
   window.addEventListener('wheel', (e) => {
     e.preventDefault();
