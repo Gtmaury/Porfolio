@@ -885,6 +885,7 @@ section {
 .contact-link-item {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 14px;
   padding: 16px 20px;
   background: var(--surface);
