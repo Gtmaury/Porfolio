@@ -139,16 +139,6 @@ document.querySelectorAll('.project-card').forEach(card => {
       nav.classList.remove('scrolled');
     }
 
-    // Toggle scroll indicator
-    const scrollIndicator = document.getElementById('scroll-indicator');
-    if (scrollIndicator) {
-      if (currentLayer === layers.length - 1) {
-        scrollIndicator.classList.add('hidden');
-      } else {
-        scrollIndicator.classList.remove('hidden');
-      }
-    }
-
     // Update progress bar
     if (scrollBar) {
       scrollBar.style.width = ((currentLayer / (layers.length - 1)) * 100) + '%';
