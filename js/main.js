@@ -46,23 +46,6 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 const nav = document.querySelector('nav');
 const scrollBar = document.getElementById('scroll-bar');
 
-window.addEventListener('scroll', () => {
-  // Toggle nav scrolled class
-  if (window.scrollY > 50) {
-    nav.classList.add('scrolled');
-  } else {
-    nav.classList.remove('scrolled');
-  }
-
-  // Update scroll progress bar
-  const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-  if (scrollBar) {
-    scrollBar.style.width = scrollPercent + '%';
-  }
-});
-
 // ── CUSTOM CURSOR GLOW ──
 const cursorGlow = document.getElementById('cursor-glow');
 if (cursorGlow) {
@@ -77,65 +60,171 @@ if (cursorGlow) {
   });
 }
 
-
-
-
-// ── CUSTOM SMOOTH SCROLL FOR ANCHOR LINKS ──
-function easeInOutCubic(t) {
-  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-}
-
-function smoothScrollTo(targetSelector, duration = 850) {
-  const target = document.querySelector(targetSelector);
-  if (!target) return;
-
-  const navEl = document.querySelector('nav');
-  const navHeight = navEl ? navEl.offsetHeight : 80;
-  
-  // Calculate offset top position
-  const targetPosition = target.getBoundingClientRect().top + window.scrollY - navHeight;
-  const startPosition = window.scrollY;
-  const distance = targetPosition - startPosition;
-  let startTime = null;
-
-  function animation(currentTime) {
-    if (startTime === null) startTime = currentTime;
-    const timeElapsed = currentTime - startTime;
-    const run = easeInOutCubic(Math.min(timeElapsed / duration, 1));
-    window.scrollTo(0, startPosition + distance * run);
-    if (timeElapsed < duration) {
-      requestAnimationFrame(animation);
-    }
-  }
-
-  requestAnimationFrame(animation);
-}
-
-// Intercept all internal anchor clicks
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    const targetId = this.getAttribute('href');
-    if (!targetId) return;
-    
-    e.preventDefault();
-    if (targetId === '#') {
-      smoothScrollTo('html', 800);
-    } else {
-      smoothScrollTo(targetId, 800);
-    }
-  });
-});
-
 // Make entire project cards clickable
 document.querySelectorAll('.project-card').forEach(card => {
   card.style.cursor = 'pointer';
   card.addEventListener('click', (e) => {
-    // If the click is inside a link, let the browser handle it natively
     if (e.target.closest('a')) return;
-    
     const link = card.querySelector('.project-link');
-    if (link) {
-      link.click();
-    }
+    if (link) link.click();
   });
 });
+
+// ══════════════════════════════════════════════
+// LAYERED PAGE SYSTEM
+// Page stays fixed. Wheel changes content.
+// Previous content blurs into background.
+// ══════════════════════════════════════════════
+
+(function initLayeredPage() {
+  // Grab each section + footer and wrap them in layer divs
+  const sectionSelectors = [
+    'section.hero',
+    'section#proyectos',
+    'section#habilidades',
+    'section#contacto'
+  ];
+
+  const layers = [];
+
+  sectionSelectors.forEach((sel, i) => {
+    const section = document.querySelector(sel);
+    if (!section) return;
+
+    // Create a wrapper div that will be our fixed layer
+    const layer = document.createElement('div');
+    layer.className = 'page-layer';
+    layer.dataset.index = i;
+
+    // Insert the layer before the section, then move section inside
+    section.parentNode.insertBefore(layer, section);
+    layer.appendChild(section);
+
+    layers.push(layer);
+  });
+
+  let currentLayer = 0;
+  let isTransitioning = false;
+
+  function goToLayer(index, fromNav = false) {
+    if (index < 0 || index >= layers.length || index === currentLayer || isTransitioning) return;
+    isTransitioning = true;
+
+    const oldLayer = layers[currentLayer];
+    const newLayer = layers[index];
+
+    // Remove all states from all layers
+    layers.forEach(l => {
+      l.classList.remove('active', 'behind');
+    });
+
+    // Old layer goes behind (blurs and darkens)
+    oldLayer.classList.add('behind');
+
+    // New layer becomes active (sharp and visible)
+    newLayer.classList.add('active');
+    
+    if (fromNav || index > currentLayer) {
+      newLayer.scrollTop = 0; // Start at top
+    } else {
+      newLayer.scrollTop = newLayer.scrollHeight; // Start at bottom when scrolling up
+    }
+
+    currentLayer = index;
+
+    // Update nav
+    if (currentLayer > 0) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+
+    // Update progress bar
+    if (scrollBar) {
+      scrollBar.style.width = ((currentLayer / (layers.length - 1)) * 100) + '%';
+    }
+
+    setTimeout(() => {
+      isTransitioning = false;
+    }, 700);
+  }
+
+  // Initialize: first layer is active
+  if (layers.length > 0) {
+    layers[0].classList.add('active');
+  }
+
+  // ── WHEEL EVENT ──
+  window.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    if (isTransitioning) return;
+
+    const activeLayer = layers[currentLayer];
+    const section = activeLayer.querySelector('section, footer');
+
+    // Check if the active layer has significant internal scrollable content
+    const canScrollInside = activeLayer.scrollHeight > activeLayer.clientHeight + 50;
+    const atTop = activeLayer.scrollTop <= 5;
+    const atBottom = activeLayer.scrollTop + activeLayer.clientHeight >= activeLayer.scrollHeight - 5;
+
+    if (e.deltaY > 0) {
+      // Scrolling DOWN
+      if (canScrollInside && !atBottom) {
+        // Let internal scroll happen
+        activeLayer.scrollTop += Math.min(e.deltaY, 100);
+      } else {
+        // Go to next layer
+        goToLayer(currentLayer + 1);
+      }
+    } else {
+      // Scrolling UP
+      if (canScrollInside && !atTop) {
+        // Let internal scroll happen
+        activeLayer.scrollTop += Math.max(e.deltaY, -100);
+      } else {
+        // Go to previous layer
+        goToLayer(currentLayer - 1);
+      }
+    }
+  }, { passive: false });
+
+  // ── TOUCH SUPPORT ──
+  let touchStartY = 0;
+  window.addEventListener('touchstart', (e) => {
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  window.addEventListener('touchend', (e) => {
+    if (isTransitioning) return;
+    const diff = touchStartY - e.changedTouches[0].clientY;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) goToLayer(currentLayer + 1);
+      else goToLayer(currentLayer - 1);
+    }
+  });
+
+  // ── NAV LINKS ──
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (!targetId) return;
+      e.preventDefault();
+
+      if (targetId === '#' || targetId === '#hero') goToLayer(0, true);
+      else if (targetId === '#proyectos') goToLayer(1, true);
+      else if (targetId === '#habilidades') goToLayer(2, true);
+      else if (targetId === '#contacto') goToLayer(3, true);
+    });
+  });
+
+  // ── KEYBOARD SUPPORT ──
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+      e.preventDefault();
+      goToLayer(currentLayer + 1);
+    } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+      e.preventDefault();
+      goToLayer(currentLayer - 1);
+    }
+  });
+})();
