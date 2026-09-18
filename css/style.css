@@ -1404,6 +1404,7 @@ footer {
 .project-image-wrap {
   position: relative;
   width: 100%;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
   border-bottom: 1px solid var(--border);
   background: #111;
@@ -1411,10 +1412,10 @@ footer {
 
 .project-image-wrap img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   object-fit: cover;
-  object-position: top;
+  object-position: center;
   transition: transform 0.5s ease, filter 0.5s ease;
 }
 
@@ -1431,11 +1432,11 @@ footer {
   width: auto;
   height: auto;
   padding: 0.8rem 1.5rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 100px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   color: #fff;
@@ -1444,6 +1445,7 @@ footer {
   font-size: 0.95rem;
   text-decoration: none;
   opacity: 0;
+  pointer-events: none;
   transition: all 0.3s ease;
   z-index: 4;
 }
@@ -1458,6 +1460,7 @@ footer {
 
 .showcase-card:hover .project-link-overlay {
   opacity: 1;
+  pointer-events: auto;
   transform: translate(-50%, -50%) scale(1);
 }
 
