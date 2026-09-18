@@ -1,0 +1,24 @@
+/* Beauty Room showcase fixes (v40) */
+.project-image-wrap {
+  aspect-ratio: 16 / 10;
+}
+.project-image-wrap img {
+  height: 100%;
+  object-position: center;
+}
+.project-link-overlay {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+  display: inline-flex;
+}
+.showcase-card:hover .project-link-overlay {
+  pointer-events: auto;
+}
+.project-link-overlay::after {
+  content: "Ver proyecto";
+  margin-left: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
