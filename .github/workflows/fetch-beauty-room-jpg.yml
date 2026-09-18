@@ -1,0 +1,27 @@
+name: Fetch Beauty Room JPG
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/fetch-beauty-room-jpg.yml'
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download JPEG
+        run: |
+          mkdir -p img/projects
+          curl -fsSL "https://litter.catbox.moe/z77fct.jpg" -o img/projects/serena-curso.jpg
+          file img/projects/serena-curso.jpg
+          python3 -c "d=open('img/projects/serena-curso.jpg','rb').read(); assert d[:2]==b'\xff\xd8', d[:4].hex()"
+      - name: Commit JPEG
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add img/projects/serena-curso.jpg
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "Add Beauty Room serena-curso.jpg thumbnail (via Actions)"
+          git push
