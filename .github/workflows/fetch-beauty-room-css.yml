@@ -1,0 +1,25 @@
+name: Fetch Beauty Room CSS
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/fetch-beauty-room-css.yml'
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download style.css
+        run: |
+          curl -fsSL "https://litter.catbox.moe/tnaufh.css" -o css/style.css
+          grep -q 'aspect-ratio: 16 / 10' css/style.css
+      - name: Commit style.css
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add css/style.css
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "Beauty Room: showcase image/overlay CSS fixes in style.css (v40)"
+          git push
