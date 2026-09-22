@@ -1,0 +1,36 @@
+name: Restore style.css
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'css/style.css.gz.b64'
+      - '.github/workflows/restore-style-css.yml'
+permissions:
+  contents: write
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Decode CSS
+        run: |
+          python3 - <<'PY'
+          import gzip, base64
+          from pathlib import Path
+          b64 = Path('css/style.css.gz.b64').read_text().strip()
+          data = gzip.decompress(base64.b64decode(b64))
+          Path('css/style.css').write_bytes(data)
+          text = data.decode()
+          assert 'body.home-layered' in text
+          assert 'body.games-page' in text
+          assert '.games-play' in text
+          print('restored', len(data))
+          PY
+      - name: Commit style.css
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add css/style.css
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "Finish games subpage: remove home layer, scope CSS, fix play button"
+          git push
