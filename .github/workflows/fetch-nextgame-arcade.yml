@@ -1,0 +1,32 @@
+name: Fetch NextGame arcade update
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/fetch-nextgame-arcade.yml'
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download arcade files
+        run: |
+          mkdir -p img/projects css
+          curl -fsSL "https://litter.catbox.moe/0d82ef.html" -o index.html
+          curl -fsSL "https://litter.catbox.moe/eqcaz4.css" -o css/style.css
+          curl -fsSL "https://litter.catbox.moe/xswmcj.jpg" -o img/projects/nextgame-arcade.jpg
+          file img/projects/nextgame-arcade.jpg
+          python3 -c "d=open('img/projects/nextgame-arcade.jpg','rb').read(); assert d[:3]==b'\xff\xd8\xff', d[:4].hex(); print('jpeg ok', len(d))"
+          python3 -c "h=open('index.html',encoding='utf-8').read(); assert 'nextgame-arcade.jpg' in h and 'v=42.0' in h; assert 'trece minijuegos' not in h and 'class=\"game-tile\"' not in h; print('index ok')"
+          python3 -c "c=open('css/style.css',encoding='utf-8').read(); assert 'object-fit: cover' in c; assert '.game-tile' not in c and '.games-grid' not in c and '.games-lead' not in c; print('css ok')"
+          test -f img/projects/nextgame.jpg
+      - name: Commit files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html css/style.css img/projects/nextgame-arcade.jpg
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "Simplify the games section and add the nextgame-arcade.jpg feature image"
+          git push
