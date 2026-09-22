@@ -15,6 +15,29 @@ function toggleLang() {
   setLang(lang === 'es' ? 'en' : 'es');
 }
 
+function initMobileNav() {
+  const nav = document.querySelector('nav');
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+  if (!nav || !toggle || !links) return;
+
+  const closeNav = () => {
+    nav.classList.remove('nav-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  };
+
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('nav-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  links.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeNav);
+  });
+}
+
+initMobileNav();
+
 // Initialization logic
 (function initLang() {
   // 1. Check localStorage
