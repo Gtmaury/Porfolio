@@ -1,1 +1,6 @@
-file:///tmp/style.patched.css
+@import url("https://cdn.jsdelivr.net/gh/Gtmaury/Porfolio@4bf0b4e215ae10ea333f2ff39a2076fad0a93ba7/css/style.css");
+
+/* Games page hero layout — Space Arcade / Games title spacing */
+.games-page-hero{display:flex;flex-direction:column;align-items:center;gap:0.9rem;overflow:visible}
+.games-page-hero .section-label{margin-bottom:0}
+.games-page-hero .section-title{margin:0;line-height:1.2;overflow:visible;padding-top:0.15rem;color:var(--text);-webkit-text-fill-color:var(--text);background:none}
