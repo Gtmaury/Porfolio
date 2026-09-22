@@ -12,8 +12,8 @@
     rel="stylesheet" />
   <link rel="icon" type="image/png" href="img/favicon.png" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-  <link rel="stylesheet" href="css/style.css?v=43.0" />
-  <script src="js/main.js?v=30.0" defer></script>
+  <link rel="stylesheet" href="css/style.css?v=44.0" />
+  <script src="js/main.js?v=31.0" defer></script>
 </head>
 
 <body class="home-layered">
@@ -25,7 +25,10 @@
   <nav>
     <div class="container">
       <a href="#" class="nav-logo">MG<span>.</span></a>
-      <div class="nav-links">
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
         <a href="#proyectos" data-es="Proyectos" data-en="Projects">Proyectos</a>
         <a href="juegos.html" data-es="Juegos" data-en="Games">Juegos</a>
         <a href="#habilidades" data-es="Habilidades" data-en="Skills">Habilidades</a>
