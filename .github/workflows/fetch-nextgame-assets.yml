@@ -1,0 +1,31 @@
+name: Fetch NextGame assets
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/fetch-nextgame-assets.yml'
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download NextGame assets
+        run: |
+          mkdir -p img/projects css
+          curl -fsSL "https://litter.catbox.moe/hii6t9.html" -o index.html
+          curl -fsSL "https://litter.catbox.moe/kxvg6u.css" -o css/style.css
+          curl -fsSL "https://litter.catbox.moe/pht618.jpg" -o img/projects/nextgame.jpg
+          file img/projects/nextgame.jpg
+          python3 -c "d=open('img/projects/nextgame.jpg','rb').read(); assert d[:3]==b'\xff\xd8\xff', d[:4].hex(); print('jpeg ok', len(d))"
+          python3 -c "h=open('index.html').read(); assert 'NextGame' in h and 'nextgame.jpg' in h; print('index ok')"
+          python3 -c "c=open('css/style.css').read(); assert '.ptag.ts' in c; print('css ok')"
+      - name: Commit assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html css/style.css img/projects/nextgame.jpg
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "Add NextGame showcase card, .ptag.ts styles, and nextgame.jpg thumbnail"
+          git push
