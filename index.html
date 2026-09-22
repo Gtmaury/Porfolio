@@ -12,8 +12,8 @@
     rel="stylesheet" />
   <link rel="icon" type="image/png" href="img/favicon.png" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-  <link rel="stylesheet" href="css/style.css?v=40.0" />
-  <script src="js/main.js?v=28.0" defer></script>
+  <link rel="stylesheet" href="css/style.css?v=41.0" />
+  <script src="js/main.js?v=29.0" defer></script>
 </head>
 
 <body>
@@ -27,6 +27,7 @@
       <a href="#" class="nav-logo">MG<span>.</span></a>
       <div class="nav-links">
         <a href="#proyectos" data-es="Proyectos" data-en="Projects">Proyectos</a>
+        <a href="#juegos" data-es="Juegos" data-en="Games">Juegos</a>
         <a href="#habilidades" data-es="Habilidades" data-en="Skills">Habilidades</a>
         <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
         <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">🌐 EN</button>
@@ -221,25 +222,6 @@
           </div>
         </div>
 
-        <div class="project-card showcase-card fade-in">
-          <div class="project-image-wrap">
-            <img src="img/projects/nextgame.jpg" alt="NextGame">
-            <a href="https://nextgame-silk.vercel.app/" target="_blank" class="project-link-overlay">↗</a>
-          </div>
-          <div class="project-content">
-            <div class="project-title">NextGame</div>
-            <p class="project-desc"
-              data-es="Con NextGame construí un catálogo arcade PWA: mosaico en desktop, feed con swipe en móvil y minijuegos jugables. Ahora puedo crear experiencias interactivas con React, TypeScript y lógica de juego."
-              data-en="With NextGame I built an arcade catalog PWA: desktop mosaic, mobile swipe feed, and playable mini-games. I can now ship interactive experiences with React, TypeScript, and game logic.">
-              Con NextGame construí un catálogo arcade PWA: mosaico en desktop, feed con swipe en móvil y minijuegos jugables. Ahora puedo crear experiencias interactivas con React, TypeScript y lógica de juego.</p>
-            <div class="project-tags">
-              <span class="ptag react">React</span>
-              <span class="ptag vite">Vite</span>
-              <span class="ptag ts">TypeScript</span>
-            </div>
-          </div>
-        </div>
-
         <!-- GITHUB CARD (Text only) -->
         <div class="project-card fade-in" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 3rem;">
           <div class="project-icon-wrap" style="margin: 0 auto 1.5rem;">💻</div>
@@ -258,6 +240,138 @@
       </div>
 
       <!-- Navigation Arrow Down -->
+      <div class="nav-arrow-container">
+        <div class="nav-arrow down">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAMES -->
+  <section id="juegos">
+    <div class="container">
+      <div class="nav-arrow-container">
+        <div class="nav-arrow up">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+        </div>
+      </div>
+
+      <p class="section-label" data-es="Arcade" data-en="Arcade">Arcade</p>
+      <h2 class="section-title fade-in" data-es="Juegos" data-en="Games">Juegos</h2>
+      <p class="games-lead fade-in"
+        data-es="Un espacio aparte de los sitios de clientes. Aquí va la serie de videojuegos: ahora mismo, los trece minijuegos de NextGame."
+        data-en="A space apart from client sites. This is the shelf for video games — right now, the thirteen mini-games in NextGame.">
+        Un espacio aparte de los sitios de clientes. Aquí va la serie de videojuegos: ahora mismo, los trece minijuegos de NextGame.
+      </p>
+
+      <a class="games-feature fade-in" href="https://nextgame-silk.vercel.app/" target="_blank" rel="noopener">
+        <img src="img/projects/nextgame.jpg" alt="NextGame">
+        <div class="games-feature-copy">
+          <p class="games-kicker">NextGame</p>
+          <h3 data-es="La arcade completa" data-en="The full arcade">La arcade completa</h3>
+          <p data-es="Catálogo jugable: mosaico en escritorio, swipe en el móvil, récords y guardados. Cada ficha de abajo abre el mismo juego."
+            data-en="A playable catalog: desktop mosaic, mobile swipe, records, and saves. Every tile below opens the same arcade.">
+            Catálogo jugable: mosaico en escritorio, swipe en el móvil, récords y guardados. Cada ficha de abajo abre el mismo juego.
+          </p>
+          <span class="games-play" data-es="Jugar la serie →" data-en="Play the series →">Jugar la serie →</span>
+        </div>
+      </a>
+
+      <div class="games-grid">
+        <a class="game-tile" href="https://nextgame-silk.vercel.app/" target="_blank" rel="noopener" style="--tone:#f5c542">
+          <div class="game-screen" aria-hidden="true">🍎</div>
+          <div class="game-meta">
+            <span class="game-name">Catch the fruit</span>
+            <span class="game-kind" data-es="Atrapa" data-en="Catch">Atrapa</span>
+          </div>
+        </a>
+        <a class="game-tile" href="https://nextgame-silk.vercel.app/" target="_blank" rel="noopener" style="--tone:#fb7185">
+          <div class="game-screen" aria-hidden="true">◎</div>
+          <div class="game-meta">
+            <span class="game-name">Tap the dot</span>
+            <span class="game-kind" data-es="Reflejos" data-en="Reflex">Reflejos</span>
+          </div>
+        </a>
+        <a class="game-tile" href="https://nextgame-silk.vercel.app/" target="_blank" rel="noopener" style="--tone:#38bdf8">
+          <div class="game-screen" aria-hidden="true">🏁</div>
+          <div class="game-meta">
+            <span class="game-name">Time trial</span>
+            <span class="game-kind" data-es="Carrera" data-en="Race">Carrera</span>
+          </div>
+        </a>
+        <a class="game-tile" href="https://nextgame-silk.vercel.app/" target="_blank" rel="noopener" style="--tone:#a78bfa">
+          <div class="game-screen" aria-hidden="true">🧱</div>
+          <div class="game-meta">
+            <span class="game-name">Dodge</span>
+            <span class="game-kind" data-es="Esquiva" data-en="Dodge">Esquiva</span>
+          </div>
+        </a>
+        <a class="game-tile" href="https://nextgame-silk.vercel.app/" target="_blank" rel="noopener" style="--tone:#4ade80">
+          <div class="game-screen" aria-hidden="true">↑</div>
+          <div class="game-meta">
+            <span class="game-name">Jump</span>
+            <span class="game-kind" data-es="Plataformas" data-en="Platform">Plataformas</span>
+          </div>
+        </a>
+        <a class="game-tile" href="https://nextgame-silk.vercel.app/" target="_blank" rel="noopener" style="--tone:#f97316">
+          <div class="game-screen" aria-hidden="true">⚖</div>
+          <div class="game-meta">
+            <span class="game-name">Balance</span>
+            <span class="game-kind" data-es="Equilibrio" data-en="Balance">Equilibrio</span>
+          </div>
+        </a>
+        <a class="game-tile" href="https://nextgame-silk.vercel.app/" target="_blank" rel="noopener" style="--tone:#facc15">
+          <div class="game-screen" aria-hidden="true">★</div>
+          <div class="game-meta">
+            <span class="game-name">Stars</span>
+            <span class="game-kind" data-es="Arcade" data-en="Arcade">Arcade</span>
+          </div>
+        </a>
+        <a class="game-tile" href="https://nextgame-silk.vercel.app/" target="_blank" rel="noopener" style="--tone:#f43f5e">
+          <div class="game-screen" aria-hidden="true">✂</div>
+          <div class="game-meta">
+            <span class="game-name">Slice</span>
+            <span class="game-kind" data-es="Precisión" data-en="Precision">Precisión</span>
+          </div>
+        </a>
+        <a class="game-tile" href="https://nextgame-silk.vercel.app/" target="_blank" rel="noopener" style="--tone:#22d3ee">
+          <div class="game-screen" aria-hidden="true">▣</div>
+          <div class="game-meta">
+            <span class="game-name">Tower</span>
+            <span class="game-kind" data-es="Construcción" data-en="Build">Construcción</span>
+          </div>
+        </a>
+        <a class="game-tile" href="https://nextgame-silk.vercel.app/" target="_blank" rel="noopener" style="--tone:#c084fc">
+          <div class="game-screen" aria-hidden="true">◈</div>
+          <div class="game-meta">
+            <span class="game-name">Memory</span>
+            <span class="game-kind" data-es="Memoria" data-en="Memory">Memoria</span>
+          </div>
+        </a>
+        <a class="game-tile" href="https://nextgame-silk.vercel.app/" target="_blank" rel="noopener" style="--tone:#86efac">
+          <div class="game-screen" aria-hidden="true">✈</div>
+          <div class="game-meta">
+            <span class="game-name">Flap</span>
+            <span class="game-kind" data-es="Vuelo" data-en="Flight">Vuelo</span>
+          </div>
+        </a>
+        <a class="game-tile" href="https://nextgame-silk.vercel.app/" target="_blank" rel="noopener" style="--tone:#60a5fa">
+          <div class="game-screen" aria-hidden="true">⇄</div>
+          <div class="game-meta">
+            <span class="game-name">Lanes</span>
+            <span class="game-kind" data-es="Carriles" data-en="Lanes">Carriles</span>
+          </div>
+        </a>
+        <a class="game-tile" href="https://nextgame-silk.vercel.app/" target="_blank" rel="noopener" style="--tone:#fbbf24">
+          <div class="game-screen" aria-hidden="true">⚡</div>
+          <div class="game-meta">
+            <span class="game-name">Charge</span>
+            <span class="game-kind" data-es="Carga" data-en="Charge">Carga</span>
+          </div>
+        </a>
+      </div>
+
       <div class="nav-arrow-container">
         <div class="nav-arrow down">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
