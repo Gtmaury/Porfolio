@@ -12,8 +12,8 @@
     href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
     rel="stylesheet" />
   <link rel="icon" type="image/png" href="img/favicon.png" />
-  <link rel="stylesheet" href="css/style.css?v=43.0" />
-  <script src="js/games-page.js?v=1.0" defer></script>
+  <link rel="stylesheet" href="css/style.css?v=44.0" />
+  <script src="js/games-page.js?v=2.0" defer></script>
 </head>
 
 <body class="games-page">
@@ -23,7 +23,10 @@
   <nav class="scrolled">
     <div class="container">
       <a href="index.html" class="nav-logo">MG<span>.</span></a>
-      <div class="nav-links">
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
         <a href="index.html#proyectos" data-es="Proyectos" data-en="Projects">Proyectos</a>
         <a href="juegos.html" class="is-active" data-es="Juegos" data-en="Games">Juegos</a>
         <a href="index.html#habilidades" data-es="Habilidades" data-en="Skills">Habilidades</a>
@@ -35,7 +38,7 @@
 
   <main class="games-page-main">
     <div class="container">
-      <header class="games-page-hero fade-in">
+      <header class="games-page-hero fade-in visible">
         <p class="section-label" data-es="Arcade" data-en="Arcade">Arcade</p>
         <h1 class="section-title" data-es="Juegos" data-en="Games">Juegos</h1>
         <p class="games-page-lead"
