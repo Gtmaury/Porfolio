@@ -1,4 +1,4 @@
-let lang = 'es';
+let lang = 'en';
 
 function setLang(newLang) {
   lang = newLang;
@@ -40,18 +40,11 @@ initMobileNav();
 
 // Initialization logic
 (function initLang() {
-  // 1. Check localStorage
   const savedLang = localStorage.getItem('portfolio-lang');
-  if (savedLang && (savedLang === 'es' || savedLang === 'en')) {
+  if (savedLang === 'es' || savedLang === 'en') {
     setLang(savedLang);
   } else {
-    // 2. Check browser language
-    const browserLang = navigator.language || navigator.userLanguage;
-    if (browserLang.startsWith('en')) {
-      setLang('en');
-    } else {
-      setLang('es'); // Default to Spanish if not English
-    }
+    setLang('en');
   }
 })();
 

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Games — Mauricio González</title>
+  <meta name="description" content="Arcade and video games by Mauricio González. NextGame and future titles in one shareable link." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <link rel="stylesheet" href="css/style.css?v=45.0" />
+  <script src="js/games-page.js?v=3.0" defer></script>
+</head>
+
+<body class="games-page">
+
+  <div class="scroll-progress" id="scroll-bar"></div>
+
+  <nav class="scrolled">
+    <div class="container">
+      <a href="index.html" class="nav-logo">MG<span>.</span></a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#proyectos" data-es="Proyectos" data-en="Projects">Projects</a>
+        <a href="games.html" class="is-active" data-es="Juegos" data-en="Games">Games</a>
+        <a href="index.html#habilidades" data-es="Habilidades" data-en="Skills">Skills</a>
+        <a href="index.html#contacto" data-es="Contacto" data-en="Contact">Contact</a>
+        <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">🌐 ES</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="games-page-main">
+    <div class="container">
+      <header class="games-page-hero fade-in visible">
+        <p class="section-label" data-es="Arcade" data-en="Arcade">Arcade</p>
+        <h1 class="section-title" data-es="Juegos" data-en="Games">Games</h1>
+        <p class="games-page-lead"
+          data-es="Todos mis videojuegos en un solo lugar. Comparte este enlace cuando publique un título nuevo."
+          data-en="All my video games in one place. Share this link when I ship a new title.">All my video games in one place. Share this link when I ship a new title.</p>
+      </header>
+
+      <div class="games-catalog">
+        <a class="games-feature fade-in" href="https://nextgame-silk.vercel.app/" target="_blank" rel="noopener">
+          <img src="img/projects/nextgame-arcade.jpg" alt="NextGame">
+          <div class="games-feature-copy">
+            <p class="games-kicker">NextGame</p>
+            <h2 data-es="La arcade completa" data-en="The full arcade">The full arcade</h2>
+            <p data-es="Catálogo jugable: mosaico en escritorio, swipe en el móvil, récords y guardados."
+              data-en="A playable catalog: desktop mosaic, mobile swipe, records, and saves.">A playable catalog: desktop mosaic, mobile swipe, records, and saves.</p>
+            <span class="games-play" data-es="Jugar la serie →" data-en="Play the series →">Play the series →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="games-page-footer">
+    <div class="container">
+      <p class="footer-copy" data-es="Diseñado y construido por Mauricio González · 2026"
+        data-en="Designed and built by Mauricio González · 2026">Designed and built by Mauricio González · 2026</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

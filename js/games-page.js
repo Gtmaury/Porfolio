@@ -1,4 +1,4 @@
-let lang = 'es';
+let lang = 'en';
 
 function setLang(newLang) {
   lang = newLang;
@@ -42,8 +42,7 @@ function toggleLang() {
   if (savedLang === 'es' || savedLang === 'en') {
     setLang(savedLang);
   } else {
-    const browserLang = navigator.language || navigator.userLanguage || 'es';
-    setLang(browserLang.startsWith('en') ? 'en' : 'es');
+    setLang('en');
   }
 })();
 
