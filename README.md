@@ -1,41 +1,40 @@
-# Mauricio González — Portafolio Profesional
+# Mauricio González — Professional Portfolio
 
-Sesión de Cloud Agent centrada en el portafolio de **Mauricio González** (`Gtmaury` / `gtmauan`).
+Cloud Agent session focused on **Mauricio González**’s portfolio (`Gtmaury` / `gtmauan`).
 
-Repositorio fuente en GitHub: [Gtmaury/Porfolio](https://github.com/Gtmaury/Porfolio)  
-Sitio publicado: [porfolio-lime-ten.vercel.app](https://porfolio-lime-ten.vercel.app)
+Source repo on GitHub: [Gtmaury/Porfolio](https://github.com/Gtmaury/Porfolio)  
+Live site: [porfolio-lime-ten.vercel.app](https://porfolio-lime-ten.vercel.app)
 
-## Qué es
+## What it is
 
-Portafolio FullStack con estética moderna y minimalista: proyectos destacados, catálogo de juegos en `/juegos`, stack técnico e internacionalización ES/EN.
+FullStack portfolio with a modern minimal look: featured projects, games catalog at `/games.html`, tech stack, and ES/EN i18n. **English is the default language.**
 
 ## Stack
 
-- HTML5 semántico
-- CSS3 (Grid, Flexbox, animaciones)
-- JavaScript ES6+ (i18n, IntersectionObserver, navegación)
-- Fuentes: Syne + DM Sans
+- Semantic HTML5
+- CSS3 (Grid, Flexbox, animations)
+- JavaScript ES6+ (i18n, IntersectionObserver, navigation)
+- Fonts: Syne + DM Sans
 
-## Ejecutar en local
+## Run locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abre [http://127.0.0.1:4321](http://127.0.0.1:4321).
+Open [http://127.0.0.1:4321](http://127.0.0.1:4321).
 
-Catálogo de juegos (enlace para compartir): [http://127.0.0.1:4321/juegos](http://127.0.0.1:4321/juegos) — también `/games`.
+Shareable games catalog: [http://127.0.0.1:4321/games.html](http://127.0.0.1:4321/games.html) — also `/games` and `/juegos`.
 
-También puedes abrir `index.html` o `juegos.html` directamente o usar cualquier servidor estático.
-
-## Estructura
+## Structure
 
 ```
 /
-├── index.html      # Portafolio (proyectos, skills, contacto)
-├── juegos.html     # Catálogo de videojuegos
-├── vercel.json     # Rewrites /juegos y /games
+├── index.html      # Portfolio (projects, skills, contact)
+├── games.html      # Video games catalog
+├── juegos.html     # Redirect → games.html
+├── vercel.json     # Rewrites /games and /juegos
 ├── css/style.css
 ├── js/main.js
 ├── js/games-page.js
